@@ -1,6 +1,7 @@
 import express from 'express';
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config()
 
@@ -10,7 +11,7 @@ const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL;
 const app = express();
 app.use(cors({
     origin: 'https://figma-bot.up.railway.app' // Esto permite todas las solicitudes de cualquier origen
-  }));
+}));
 app.post('/monitor', async (req, res) => {
     const fileId = req.body.fileId;
     if (!fileId) {
