@@ -1,7 +1,6 @@
 import express from 'express';
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
-import cors from 'cors';
 
 dotenv.config()
 
@@ -9,9 +8,6 @@ const FIGMA_API_KEY = process.env.FIGMA_API_KEY;
 const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL;
 
 const app = express();
-app.use(cors()); // Aquí se habilita CORS para todos los origines
-
-app.options('*', cors()); // Aquí se habilita CORS para todas las rutas y para el método OPTIONS
 
 app.post('/monitor', async (req, res) => {
     const fileId = req.body.fileId;
