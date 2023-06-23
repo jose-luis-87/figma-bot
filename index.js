@@ -9,7 +9,7 @@ const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL;
 
 const app = express();
 app.use(cors({
-    origin: '*' // Esto permite todas las solicitudes de cualquier origen
+    origin: 'https://figma-bot.up.railway.app' // Esto permite todas las solicitudes de cualquier origen
   }));
 app.post('/monitor', async (req, res) => {
     const fileId = req.body.fileId;
